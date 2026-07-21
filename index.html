@@ -1192,36 +1192,38 @@ footer {
     </div>
 
     <div class="contact-form-wrap reveal">
+      <form action="https://formspree.io/f/xkodzyjd" method="POST">
       <div class="form-head">Send us a message</div>
       <div class="form-subhead">We will get back to you within 2 business days.</div>
 
       <div class="form-row">
         <div class="f-group">
           <label class="f-label">First Name</label>
-          <input type="text" class="f-control" placeholder="Jane">
+          <input type="text" name="first-name" class="f-control" placeholder="Jane">
         </div>
         <div class="f-group">
           <label class="f-label">Last Name</label>
-          <input type="text" class="f-control" placeholder="Smith">
+          <input type="text" name="last-name" class="f-control" placeholder="Smith">
         </div>
       </div>
 
       <div class="f-group">
         <label class="f-label">Email</label>
-        <input type="email" class="f-control" placeholder="jane@email.com">
+        <input type="email" name="email" class="f-control" placeholder="jane@email.com">
       </div>
 
       <div class="f-group">
         <label class="f-label">Phone</label>
-        <input type="tel" class="f-control" placeholder="(805) 555-0100">
+        <input type="tel" name="phone" class="f-control" placeholder="(805) 555-0100">
       </div>
 
       <div class="f-group">
         <label class="f-label">How can we help?</label>
-        <textarea class="f-control" placeholder="Tell us a bit about your project..."></textarea>
+        <textarea name="message" class="f-control" placeholder="Tell us a bit about your project..."></textarea>
       </div>
 
       <button class="f-submit">Send Message</button>
+      </form>
     </div>
   </div>
 </section>
