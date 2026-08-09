@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Intake — Flowers for Fingers</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #F5A623;
+    --orange-light: #FEF3E2;
+    --pink: #E8607A;
+    --pink-light: #FDEEF1;
+    --green: #4CAF7D;
+    --green-light: #E8F5EF;
+    --purple: #B886C8;
+    --purple-light: #F5EEFA;
+    --charcoal: #1A1A1A;
+    --mid: #555555;
+    --muted: #888888;
+    --border: #E8E0D5;
+    --bg: #FDFAF6;
+    --white: #FFFFFF;
+    --section-bg: #FAF7F2;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--charcoal);
+    line-height: 1.6;
+    padding: 0;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-flowers {
+    width: 44px;
+    height: 44px;
+  }
+
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--charcoal);
+    letter-spacing: 0.01em;
+  }
+
+  .header-tagline {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* ── HERO ── */
+  .form-hero {
+    background: var(--white);
+    padding: 64px 40px 48px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--orange) 0%, var(--pink) 33%, var(--green) 66%, var(--purple) 100%);
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--orange);
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    color: var(--mid);
+    max-width: 520px;
+    margin: 0 auto 28px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .hero-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--orange-light);
+    border: 1px solid var(--orange);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 13px;
+    color: var(--charcoal);
+  }
+
+  .hero-note span {
+    color: var(--orange);
+    font-size: 15px;
+  }
+
+  /* ── FORM CONTAINER ── */
+  .form-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── SECTION ── */
+  .form-section {
+    margin-bottom: 48px;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  .section-header {
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-header.orange { background: var(--orange-light); border-left: 4px solid var(--orange); }
+  .section-header.pink   { background: var(--pink-light);   border-left: 4px solid var(--pink); }
+  .section-header.green  { background: var(--green-light);  border-left: 4px solid var(--green); }
+  .section-header.purple { background: var(--purple-light); border-left: 4px solid var(--purple); }
+
+  .section-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .section-icon.orange { background: var(--orange); }
+  .section-icon.pink   { background: var(--pink); }
+  .section-icon.green  { background: var(--green); }
+  .section-icon.purple { background: var(--purple); }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+
+  .section-subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-top: 2px;
+  }
+
+  .section-body {
+    padding: 28px 28px 20px;
+  }
+
+  /* ── FIELD ── */
+  .field {
+    margin-bottom: 24px;
+  }
+
+  .field:last-child { margin-bottom: 4px; }
+
+  .field-label {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .required-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .optional-tag {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--muted);
+    background: #F0EDE8;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-left: 4px;
+  }
+
+  .field-hint {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--charcoal);
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.12);
+    background: var(--white);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.6;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+
+  /* ── TWO COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 560px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+
+  /* ── RADIO / CHECKBOX GROUP ── */
+  .choice-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .choice-group.horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .choice-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--mid);
+    font-weight: 300;
+    user-select: none;
+  }
+
+  .choice-item input[type="radio"],
+  .choice-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--border);
+    border-radius: 50%;
+    background: var(--bg);
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.15s;
+    padding: 0;
+  }
+
+  .choice-item input[type="checkbox"] { border-radius: 5px; }
+
+  .choice-item input[type="radio"]:checked,
+  .choice-item input[type="checkbox"]:checked {
+    background: var(--orange);
+    border-color: var(--orange);
+    box-shadow: inset 0 0 0 3px white;
+  }
+
+  .choice-item input[type="checkbox"]:checked {
+    background: var(--orange);
+    border-color: var(--orange);
+    box-shadow: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l3 3 5-6' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10px;
+  }
+
+  /* ── SUBMIT ── */
+  .submit-area {
+    text-align: center;
+    padding: 40px 24px 0;
+  }
+
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--orange);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 100px;
+    padding: 16px 40px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.02em;
+  }
+
+  .submit-btn:hover {
+    background: #E09518;
+    transform: translateY(-1px);
+  }
+
+  .submit-note {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 14px;
+    font-weight: 300;
+  }
+
+  /* ── FOOTER ── */
+  .form-footer {
+    text-align: center;
+    padding: 32px 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .form-footer a {
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  /* ── SVG LOGO ── */
+  .logo-svg { width: 44px; height: 44px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo-area">
+    <svg class="logo-svg" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Hand drawn style flower logo approximation -->
+      <ellipse cx="32" cy="28" rx="10" ry="13" fill="#E8607A" transform="rotate(-15 32 28)"/>
+      <ellipse cx="26" cy="36" rx="9" ry="12" fill="#E8607A" transform="rotate(20 26 36)"/>
+      <circle cx="29" cy="30" r="5" fill="#F5D76E"/>
+      <line x1="29" y1="35" x2="50" y2="75" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="38" cy="50" rx="5" ry="8" fill="#4CAF7D" transform="rotate(-25 38 50)"/>
+      <ellipse cx="60" cy="22" rx="9" ry="11" fill="#F5A623" transform="rotate(10 60 22)"/>
+      <line x1="58" y1="32" x2="50" y2="75" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="72" cy="60" rx="5" ry="7" fill="#B886C8" transform="rotate(20 72 60)"/>
+      <ellipse cx="78" cy="52" rx="4" ry="6" fill="#B886C8" transform="rotate(35 78 52)"/>
+      <!-- purple sprigs already in logo colors -->
+      <!-- hand outline simplified -->
+      <path d="M42 75 Q38 95 45 110 Q52 118 58 110 Q62 95 58 75 Z" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round"/>
+      <path d="M50 75 Q46 90 50 110" stroke="#1A1A1A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div>
+      <div class="logo-text">Flowers for Fingers</div>
+      <div class="header-tagline">Creative Landscaping, Local Roots</div>
+    </div>
+  </div>
+  <div style="font-size:13px; color: var(--muted);">Santa Barbara, CA &nbsp;·&nbsp; LIC #1101487</div>
+</header>
+
+<!-- HERO -->
+<div class="form-hero">
+  <div class="hero-eyebrow">Project Intake Form</div>
+  <h1 class="hero-title">Tell us about your <em>outdoor space</em></h1>
+  <p class="hero-desc">You have already taken the first step by meeting with us. Now help us understand your vision so we can put together the best possible plan for your property.</p>
+  <div class="hero-note">
+    <span>🌿</span>
+    Fields marked with an orange dot are required — everything else is optional but appreciated
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-container">
+<form action="https://formspree.io/f/xkodzyjd" method="POST">
+
+  <!-- SECTION 1: ABOUT YOU -->
+  <div class="form-section">
+    <div class="section-header orange">
+      <div class="section-icon orange">🌸</div>
+      <div>
+        <div class="section-title">About You</div>
+        <div class="section-subtitle">So we know who we are working with</div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="two-col">
+        <div class="field">
+          <label class="field-label">
+            <span class="required-dot"></span>
+            First and Last Name
+          </label>
+          <input type="text" placeholder="Jane Smith" required>
+        </div>
+        <div class="field">
+          <label class="field-label">
+            <span class="required-dot"></span>
+            Property Address
+          </label>
+          <input type="text" placeholder="123 Garden Lane, Santa Barbara" required>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="field">
+          <label class="field-label">
+            <span class="required-dot"></span>
+            Phone Number
+          </label>
+          <input type="tel" placeholder="(805) 555-0100" required>
+        </div>
+        <div class="field">
+          <label class="field-label">
+            <span class="required-dot"></span>
+            Email Address
+          </label>
+          <input type="email" placeholder="jane@email.com" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          How did you hear about us?
+          <span class="optional-tag">optional</span>
+        </label>
+        <select>
+          <option value="" disabled selected>Select one</option>
+          <option>Referral from a friend or neighbor</option>
+          <option>Nextdoor</option>
+          <option>Google Search</option>
+          <option>Instagram</option>
+          <option>Yelp</option>
+          <option>Drove by a job site</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 2: YOUR VISION -->
+  <div class="form-section">
+    <div class="section-header orange">
+      <div class="section-icon orange">✨</div>
+      <div>
+        <div class="section-title">Your Vision</div>
+        <div class="section-subtitle">Help us understand what you are dreaming of</div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="field">
+        <label class="field-label">
+          <span class="required-dot"></span>
+          Which area of your property does this project cover?
+        </label>
+        <div class="choice-group horizontal">
+          <label class="choice-item"><input type="checkbox"> Front yard</label>
+          <label class="choice-item"><input type="checkbox"> Back yard</label>
+          <label class="choice-item"><input type="checkbox"> Side yard</label>
+          <label class="choice-item"><input type="checkbox"> Whole property</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          <span class="required-dot"></span>
+          Are you looking for a full redesign or improvements to what is already there?
+        </label>
+        <div class="choice-group horizontal">
+          <label class="choice-item"><input type="radio" name="scope"> Full redesign</label>
+          <label class="choice-item"><input type="radio" name="scope"> Improvements to what's here</label>
+          <label class="choice-item"><input type="radio" name="scope"> Not sure yet</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          Describe your dream outdoor space in a few sentences.
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="field-hint">What does it look like? How does it feel? How do you use it?</div>
+        <textarea placeholder="I picture a low-maintenance native garden with a shaded seating area and a path through the side yard..."></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          What is prompting this project right now?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="field-hint">Is something not working, are you preparing for an event, or just time for a refresh?</div>
+        <textarea rows="2" style="min-height:70px" placeholder="The front yard has been neglected for years and we want to finally make it beautiful..."></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          Do you have photos, Pinterest boards, or examples of styles you love?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="field-hint">Share any links or describe what draws you to them.</div>
+        <textarea rows="2" style="min-height:70px" placeholder="I love the look of drought-tolerant California native gardens — here is a Pinterest board: pinterest.com/..."></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          Are there any styles or looks you definitely do not want?
+          <span class="optional-tag">optional</span>
+        </label>
+        <textarea rows="2" style="min-height:70px" placeholder="Nothing too formal or manicured — I prefer a natural, slightly wild feel..."></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          What will the space mostly be used for?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="choice-group horizontal">
+          <label class="choice-item"><input type="checkbox" name="space_use" value="Playing with kids"> Playing with kids</label>
+          <label class="choice-item"><input type="checkbox" name="space_use" value="Pets running around"> Pets running around</label>
+          <label class="choice-item"><input type="checkbox" name="space_use" value="Entertaining and hosting"> Entertaining and hosting</label>
+          <label class="choice-item"><input type="checkbox" name="space_use" value="Personal gardening"> Personal gardening</label>
+          <label class="choice-item"><input type="checkbox" name="space_use" value="A quiet retreat"> A quiet retreat</label>
+          <label class="choice-item"><input type="checkbox" name="space_use" value="Everyday family time"> Everyday family time</label>
+          <label class="choice-item"><input type="checkbox" name="space_use" value="Other"> Other</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3: BUDGET AND SCOPE -->
+  <div class="form-section">
+    <div class="section-header pink">
+      <div class="section-icon pink">💰</div>
+      <div>
+        <div class="section-title">Budget and Scope</div>
+        <div class="section-subtitle">Helps us tailor the proposal to what works for you</div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="field">
+        <label class="field-label">
+          <span class="required-dot"></span>
+          Do you have a budget range in mind for this project?
+        </label>
+        <div class="field-hint">There is no wrong answer — this helps us prioritize the right things.</div>
+        <select required>
+          <option value="" disabled selected>Select a range</option>
+          <option>Under $5,000</option>
+          <option>$5,000 – $10,000</option>
+          <option>$10,000 – $20,000</option>
+          <option>$20,000 – $40,000</option>
+          <option>$40,000 – $75,000</option>
+          <option>$75,000+</option>
+          <option>I am flexible / not sure yet</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          Would you prefer to complete everything at once, or are you open to phasing the project over time?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="choice-group horizontal">
+          <label class="choice-item"><input type="radio" name="phasing"> All at once</label>
+          <label class="choice-item"><input type="radio" name="phasing"> Open to phasing</label>
+          <label class="choice-item"><input type="radio" name="phasing"> Not sure yet</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          If budget gets tight, are there must-haves you would prioritize?
+          <span class="optional-tag">optional</span>
+        </label>
+        <textarea rows="2" style="min-height:70px" placeholder="The back patio is the most important thing — the front yard can wait if needed..."></textarea>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4: TIMELINE -->
+  <div class="form-section">
+    <div class="section-header pink">
+      <div class="section-icon pink">📅</div>
+      <div>
+        <div class="section-title">Timeline</div>
+        <div class="section-subtitle">So we can plan around what matters to you</div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="field">
+        <label class="field-label">
+          <span class="required-dot"></span>
+          Do you have a target start date or a deadline you are working toward?
+        </label>
+        <div class="choice-group horizontal">
+          <label class="choice-item"><input type="radio" name="timing"> As soon as possible</label>
+          <label class="choice-item"><input type="radio" name="timing"> Within the next 1–3 months</label>
+          <label class="choice-item"><input type="radio" name="timing"> 3–6 months from now</label>
+          <label class="choice-item"><input type="radio" name="timing"> Flexible — no rush</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          Are there any upcoming events at the home we should plan around?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="field-hint">A party, a move, other contractors, an HOA deadline, etc.</div>
+        <textarea rows="2" style="min-height:70px" placeholder="We are hosting a graduation party in June so it would be great to be done before then..."></textarea>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 5: YOUR PROPERTY -->
+  <div class="form-section">
+    <div class="section-header green">
+      <div class="section-icon green">🌿</div>
+      <div>
+        <div class="section-title">Your Property</div>
+        <div class="section-subtitle">A few details that help us plan the work</div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="field">
+        <label class="field-label">
+          Is there existing irrigation on the property, and does it work well?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="choice-group horizontal">
+          <label class="choice-item"><input type="radio" name="irrigation"> Yes and it works well</label>
+          <label class="choice-item"><input type="radio" name="irrigation"> Yes but it has issues</label>
+          <label class="choice-item"><input type="radio" name="irrigation"> No irrigation</label>
+          <label class="choice-item"><input type="radio" name="irrigation"> Not sure</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          Are there any drainage issues, standing water, or areas that flood after rain?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="choice-group horizontal">
+          <label class="choice-item"><input type="radio" name="drainage"> Yes</label>
+          <label class="choice-item"><input type="radio" name="drainage"> No</label>
+          <label class="choice-item"><input type="radio" name="drainage"> Not sure</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          Are there trees, plants, or features you love and want to keep no matter what?
+          <span class="optional-tag">optional</span>
+        </label>
+        <textarea rows="2" style="min-height:70px" placeholder="We have a big old oak tree we would never remove, and a lemon tree we love..."></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          Are there any HOA rules or city restrictions we should be aware of?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="choice-group horizontal">
+          <label class="choice-item"><input type="radio" name="hoa"> Yes — I will share details below</label>
+          <label class="choice-item"><input type="radio" name="hoa"> No</label>
+          <label class="choice-item"><input type="radio" name="hoa"> Not sure</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 6: AFTER THE PROJECT -->
+  <div class="form-section">
+    <div class="section-header purple">
+      <div class="section-icon purple">🌱</div>
+      <div>
+        <div class="section-title">After the Project</div>
+        <div class="section-subtitle">We offer ongoing maintenance too — just let us know</div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="field">
+        <label class="field-label">
+          Once the project is complete, are you planning to maintain it yourself or are you interested in an ongoing maintenance plan?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="choice-group horizontal">
+          <label class="choice-item"><input type="radio" name="maintenance"> I will maintain it myself</label>
+          <label class="choice-item"><input type="radio" name="maintenance"> Interested in a maintenance plan</label>
+          <label class="choice-item"><input type="radio" name="maintenance"> Not sure yet</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          How much time would you realistically want to spend on upkeep each week?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="choice-group horizontal">
+          <label class="choice-item"><input type="radio" name="upkeep"> As little as possible</label>
+          <label class="choice-item"><input type="radio" name="upkeep"> 30–60 minutes</label>
+          <label class="choice-item"><input type="radio" name="upkeep"> A few hours — I enjoy it</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 7: ANYTHING ELSE -->
+  <div class="form-section">
+    <div class="section-header purple">
+      <div class="section-icon purple">💬</div>
+      <div>
+        <div class="section-title">Anything Else?</div>
+        <div class="section-subtitle">This is your space</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label class="field-label">
+          Is there anything else about your property, your lifestyle, or your vision that would help us understand what you are looking for?
+          <span class="optional-tag">optional</span>
+        </label>
+        <textarea style="min-height:120px" placeholder="Anything you want us to know before we put your proposal together..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-area">
+    <button type="submit" class="submit-btn">
+      Send My Project Details 🌿
+    </button>
+    <p class="submit-note">We will review your responses and follow up within 5 business days with your proposal.</p>
+  </div>
+
+</form>
+</div>
+
+<!-- FOOTER -->
+<div class="form-footer">
+  <a href="https://flowersforfingers.com">flowersforfingers.com</a> &nbsp;·&nbsp;
+  (805) 699-6154 &nbsp;·&nbsp;
+  hello@flowersforfingers.com &nbsp;·&nbsp;
+  LIC #1101487
+</div>
+
+</body>
+</html>
