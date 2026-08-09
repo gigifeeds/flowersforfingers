@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maintenance Consultation — Flowers for Fingers</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --orange: #F5A623;
+  --orange-light: #FEF3E2;
+  --pink: #E8607A;
+  --pink-light: #FDEEF1;
+  --green: #4CAF7D;
+  --green-light: #E8F5EF;
+  --lavender: #B886C8;
+  --lavender-light: #F5EEFA;
+  --charcoal: #1A1A1A;
+  --mid: #444444;
+  --muted: #888888;
+  --border: #E8E0D5;
+  --bg: #FDFAF6;
+  --white: #FFFFFF;
+  --section-alt: #FAF7F2;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--charcoal);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--charcoal);
+}
+
+.header-sub {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+/* ── HERO ── */
+.form-hero {
+  background: var(--white);
+  padding: 56px 40px 44px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--orange), var(--pink), var(--green), var(--lavender));
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.hero-title em { font-style: italic; color: var(--green); }
+
+.hero-desc {
+  font-size: 16px;
+  color: var(--mid);
+  max-width: 500px;
+  margin: 0 auto 24px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.hero-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-light);
+  border: 1px solid var(--green);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 13px;
+  color: var(--charcoal);
+}
+
+/* ── FORM CONTAINER ── */
+.form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 44px 24px 80px;
+}
+
+/* ── SECTION ── */
+.form-section {
+  margin-bottom: 40px;
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.section-header {
+  padding: 18px 26px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-header.green   { background: var(--green-light);   border-left: 4px solid var(--green); }
+.section-header.orange  { background: var(--orange-light);  border-left: 4px solid var(--orange); }
+.section-header.pink    { background: var(--pink-light);    border-left: 4px solid var(--pink); }
+.section-header.lavender{ background: var(--lavender-light);border-left: 4px solid var(--lavender); }
+
+.section-icon {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; flex-shrink: 0;
+}
+
+.section-icon.green    { background: var(--green); }
+.section-icon.orange   { background: var(--orange); }
+.section-icon.pink     { background: var(--pink); }
+.section-icon.lavender { background: var(--lavender); }
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.section-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 300;
+  margin-top: 2px;
+}
+
+.section-body { padding: 24px 26px 18px; }
+
+/* ── FIELDS ── */
+.field { margin-bottom: 22px; }
+.field:last-child { margin-bottom: 4px; }
+
+.field-label {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.required-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.optional-tag {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  background: #F0EDE8;
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-left: 4px;
+}
+
+.field-hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--charcoal);
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(76,175,125,0.1);
+  background: var(--white);
+}
+
+textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 38px;
+  cursor: pointer;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ── CHECKBOX / RADIO ── */
+.choice-group { display: flex; flex-direction: column; gap: 10px; }
+.choice-group.wrap { flex-direction: row; flex-wrap: wrap; gap: 10px; }
+
+.choice-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--mid);
+  font-weight: 300;
+  user-select: none;
+}
+
+.choice-item input[type="radio"],
+.choice-item input[type="checkbox"] {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg);
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s;
+  padding: 0;
+}
+
+.choice-item input[type="checkbox"] { border-radius: 5px; }
+
+.choice-item input[type="radio"]:checked,
+.choice-item input[type="checkbox"]:checked {
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: inset 0 0 0 3px white;
+}
+
+.choice-item input[type="checkbox"]:checked {
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l3 3 5-6' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
+
+/* Priority ranking */
+.priority-list { display: flex; flex-direction: column; gap: 8px; }
+
+.priority-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--mid);
+}
+
+.priority-num {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--green);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── SUBMIT ── */
+.submit-area { text-align: center; padding: 36px 24px 0; }
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--green);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 100px;
+  padding: 15px 40px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 0.01em;
+}
+
+.submit-btn:hover { background: #3D9A6A; transform: translateY(-1px); }
+
+.submit-note {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 12px;
+  font-weight: 300;
+}
+
+/* ── FOOTER ── */
+.form-footer {
+  text-align: center;
+  padding: 28px 24px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.form-footer a { color: var(--orange); text-decoration: none; }
+
+@media (max-width: 560px) {
+  .two-col { grid-template-columns: 1fr; }
+  .site-header { padding: 14px 20px; }
+  .form-hero { padding: 40px 20px 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="https://flowersforfingers.com" class="logo-area">
+    <svg width="36" height="36" viewBox="0 0 100 120" fill="none">
+      <ellipse cx="32" cy="28" rx="10" ry="13" fill="#E8607A" transform="rotate(-15 32 28)"/>
+      <ellipse cx="26" cy="36" rx="9" ry="12" fill="#E8607A" transform="rotate(20 26 36)"/>
+      <circle cx="29" cy="30" r="5" fill="#F5D76E"/>
+      <line x1="29" y1="35" x2="50" y2="75" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+      <ellipse cx="38" cy="50" rx="5" ry="8" fill="#4CAF7D" transform="rotate(-25 38 50)"/>
+      <ellipse cx="60" cy="22" rx="9" ry="11" fill="#F5A623" transform="rotate(10 60 22)"/>
+      <line x1="58" y1="32" x2="50" y2="75" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+      <ellipse cx="72" cy="60" rx="5" ry="7" fill="#B886C8" transform="rotate(20 72 60)"/>
+      <ellipse cx="78" cy="52" rx="4" ry="6" fill="#B886C8" transform="rotate(35 78 52)"/>
+      <path d="M42 75 Q38 95 45 110 Q52 118 58 110 Q62 95 58 75 Z" fill="none" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M50 75 Q46 90 50 110" stroke="#1A1A1A" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div>
+      <div class="logo-text">Flowers for Fingers</div>
+      <div class="header-sub">Creative Landscaping · Santa Barbara</div>
+    </div>
+  </a>
+  <div style="font-size:13px;color:var(--muted);">LIC #1101487</div>
+</header>
+
+<!-- HERO -->
+<div class="form-hero">
+  <div class="hero-eyebrow">Garden Maintenance Consultation</div>
+  <h1 class="hero-title">Tell us about your <em>garden goals</em></h1>
+  <p class="hero-desc">Help us understand what matters most so we can put together a maintenance plan that works for your space and your budget.</p>
+  <div class="hero-note">
+    <span>🌿</span>
+    Fields marked with an orange dot are required
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-container">
+<form action="https://formspree.io/f/mjybyyln" method="POST">
+
+  <!-- SECTION 1: ABOUT YOU -->
+  <div class="form-section">
+    <div class="section-header orange">
+      <div class="section-icon orange">🌸</div>
+      <div>
+        <div class="section-title">About You</div>
+        <div class="section-subtitle">So we know who we are working with</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="two-col">
+        <div class="field">
+          <label class="field-label">
+            <span class="required-dot"></span>
+            First and Last Name
+          </label>
+          <input type="text" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="field">
+          <label class="field-label">
+            <span class="required-dot"></span>
+            Property Address
+          </label>
+          <input type="text" name="address" placeholder="123 Garden Lane, Santa Barbara" required>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label class="field-label">
+            <span class="required-dot"></span>
+            Phone Number
+          </label>
+          <input type="tel" name="phone" placeholder="(805) 555-0100" required>
+        </div>
+        <div class="field">
+          <label class="field-label">
+            <span class="required-dot"></span>
+            Email Address
+          </label>
+          <input type="email" name="email" placeholder="jane@email.com" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label">
+          How did you hear about us?
+          <span class="optional-tag">optional</span>
+        </label>
+        <select name="referral">
+          <option value="" disabled selected>Select one</option>
+          <option>Referral from a friend or neighbor</option>
+          <option>Nextdoor</option>
+          <option>Google Search</option>
+          <option>Instagram</option>
+          <option>Yelp</option>
+          <option>Drove by a job</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: YOUR PROPERTY -->
+  <div class="form-section">
+    <div class="section-header green">
+      <div class="section-icon green">🌿</div>
+      <div>
+        <div class="section-title">Your Property</div>
+        <div class="section-subtitle">Help us understand what we are working with</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label class="field-label">
+          <span class="required-dot"></span>
+          Which areas need maintenance?
+        </label>
+        <div class="choice-group wrap">
+          <label class="choice-item"><input type="checkbox" name="areas" value="Front yard"> Front yard</label>
+          <label class="choice-item"><input type="checkbox" name="areas" value="Back yard"> Back yard</label>
+          <label class="choice-item"><input type="checkbox" name="areas" value="Side yard"> Side yard</label>
+          <label class="choice-item"><input type="checkbox" name="areas" value="Whole property"> Whole property</label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label">
+          How would you describe the current state of the garden?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="choice-group">
+          <label class="choice-item"><input type="radio" name="garden_state"> Well maintained — just needs regular upkeep</label>
+          <label class="choice-item"><input type="radio" name="garden_state"> Somewhat neglected — needs some catching up</label>
+          <label class="choice-item"><input type="radio" name="garden_state"> Overgrown — needs significant work to get it back on track</label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label">
+          Is there existing irrigation?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="choice-group wrap">
+          <label class="choice-item"><input type="radio" name="irrigation"> Yes and it works well</label>
+          <label class="choice-item"><input type="radio" name="irrigation"> Yes but it needs attention</label>
+          <label class="choice-item"><input type="radio" name="irrigation"> No irrigation</label>
+          <label class="choice-item"><input type="radio" name="irrigation"> Not sure</label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label">
+          Describe the garden briefly — what is planted, what features are there?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="field-hint">For example: lawn, rose beds, fruit trees, decomposed granite areas, hedges, etc.</div>
+        <textarea name="garden_description" placeholder="We have a front lawn, a few rose beds along the fence, two lemon trees, and decomposed granite along the driveway..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: YOUR GOALS -->
+  <div class="form-section">
+    <div class="section-header green">
+      <div class="section-icon green">🎯</div>
+      <div>
+        <div class="section-title">Your Goals</div>
+        <div class="section-subtitle">What does a well maintained garden look like to you?</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label class="field-label">
+          <span class="required-dot"></span>
+          What tasks are most important to you? Select all that apply.
+        </label>
+        <div class="choice-group">
+          <label class="choice-item"><input type="checkbox" name="tasks" value="Lawn mowing and edging"> Lawn mowing and edging</label>
+          <label class="choice-item"><input type="checkbox" name="tasks" value="Shrub and hedge trimming"> Shrub and hedge trimming</label>
+          <label class="choice-item"><input type="checkbox" name="tasks" value="Tree trimming"> Tree trimming</label>
+          <label class="choice-item"><input type="checkbox" name="tasks" value="Weeding"> Weeding</label>
+          <label class="choice-item"><input type="checkbox" name="tasks" value="Leaf and debris cleanup"> Leaf and debris cleanup</label>
+          <label class="choice-item"><input type="checkbox" name="tasks" value="Fertilizing"> Fertilizing</label>
+          <label class="choice-item"><input type="checkbox" name="tasks" value="Irrigation checks and adjustments"> Irrigation checks and adjustments</label>
+          <label class="choice-item"><input type="checkbox" name="tasks" value="Seasonal color planting"> Seasonal color planting</label>
+          <label class="choice-item"><input type="checkbox" name="tasks" value="Cobweb removal"> Cobweb removal</label>
+          <label class="choice-item"><input type="checkbox" name="tasks" value="Other" id="tasks-other" onchange="toggleOther(this, 'tasks-other-text')"> Other</label>
+          <div id="tasks-other-text" style="display:none; margin-top:8px;">
+            <input type="text" name="tasks_other_detail" placeholder="Please describe..." style="width:100%;">
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label">
+          If you had to rank your top 3 priorities, what would they be?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="field-hint">This helps us focus the right amount of time on what matters most to you.</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="priority-num">1</div>
+            <input type="text" name="priority_1" placeholder="Most important...">
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="priority-num">2</div>
+            <input type="text" name="priority_2" placeholder="Second priority...">
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="priority-num">3</div>
+            <input type="text" name="priority_3" placeholder="Third priority...">
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label">
+          Are there any areas or plants you want us to leave alone?
+          <span class="optional-tag">optional</span>
+        </label>
+        <textarea name="leave_alone" placeholder="Please do not touch the rose bushes along the back fence — they are my grandmother's..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: BUDGET AND FREQUENCY -->
+  <div class="form-section">
+    <div class="section-header orange">
+      <div class="section-icon orange">📅</div>
+      <div>
+        <div class="section-title">Budget and Frequency</div>
+        <div class="section-subtitle">Helps us tailor the right plan for you</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label class="field-label">
+          <span class="required-dot"></span>
+          How often would you like service?
+        </label>
+        <div class="choice-group">
+          <label class="choice-item"><input type="radio" name="frequency"> Weekly</label>
+          <label class="choice-item"><input type="radio" name="frequency"> Every two weeks</label>
+          <label class="choice-item"><input type="radio" name="frequency"> Monthly</label>
+          <label class="choice-item"><input type="radio" name="frequency"> Not sure — open to a recommendation</label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label">
+          Do you have a budget or number of hours per visit in mind?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="field-hint">There is no wrong answer — this helps us set realistic expectations upfront.</div>
+        <div class="choice-group">
+          <label class="choice-item"><input type="radio" name="budget"> I have a set number of hours in mind — I will share below</label>
+          <label class="choice-item"><input type="radio" name="budget"> I have a monthly dollar budget in mind — I will share below</label>
+          <label class="choice-item"><input type="radio" name="budget"> I want you to recommend what it takes to get it done right</label>
+          <label class="choice-item"><input type="radio" name="budget"> Flexible — let's discuss</label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label">
+          Share your budget or hour preference here
+          <span class="optional-tag">optional</span>
+        </label>
+        <input type="text" name="budget_detail" placeholder="e.g. 2 hours per visit, or $200 per month...">
+      </div>
+      <div class="field">
+        <label class="field-label">
+          If time or budget is limited, what would you be okay letting slide?
+          <span class="optional-tag">optional</span>
+        </label>
+        <div class="field-hint">This helps David prioritize correctly when he cannot get to everything in one visit.</div>
+        <textarea name="trade_offs" placeholder="The side yard is less important — focus on the front and back if time runs short..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: ANYTHING ELSE -->
+  <div class="form-section">
+    <div class="section-header lavender">
+      <div class="section-icon lavender">💬</div>
+      <div>
+        <div class="section-title">Anything Else?</div>
+        <div class="section-subtitle">This is your space</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label class="field-label">
+          Is there anything else we should know before putting together your maintenance proposal?
+          <span class="optional-tag">optional</span>
+        </label>
+        <textarea name="other" placeholder="Dogs in the backyard, gate code, parking notes, specific concerns about the garden..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-area">
+    <button type="submit" class="submit-btn">Send My Garden Goals 🌿</button>
+    <p class="submit-note">We will review your responses and follow up within 2 business days with a proposed maintenance plan.</p>
+  </div>
+
+</form>
+</div>
+
+<!-- FOOTER -->
+<div class="form-footer">
+  <a href="https://flowersforfingers.com">flowersforfingers.com</a> &nbsp;·&nbsp;
+  (805) 699-6154 &nbsp;·&nbsp;
+  hello@flowersforfingers.com &nbsp;·&nbsp;
+  LIC #1101487
+</div>
+
+<script>
+function toggleOther(checkbox, targetId) {
+  const target = document.getElementById(targetId);
+  if (checkbox.checked) {
+    target.style.display = 'block';
+    target.querySelector('input, textarea').focus();
+  } else {
+    target.style.display = 'none';
+    target.querySelector('input, textarea').value = '';
+  }
+}
+</script>
+</body>
+</html>
